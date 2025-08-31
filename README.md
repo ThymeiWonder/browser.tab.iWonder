@@ -41,9 +41,7 @@
 7. 此时背景图片设置完成.
 
 ## 🛠️ 安装说明
-1. 下载并解压
- - https://github.com/ThymeiWonder/browser.tab.iWonder/releases/latest
- 获得一个独立文件: `browser.tab.iWonder.html`.
+1. [点击下载`browser.tab.iWonder.html`](https://github.com/ThymeiWonder/browser.tab.iWonder/releases/latest) .
 2.  **设置为新标签页(强烈推荐✨✨)**
     - 安装适用于您的浏览器的扩展程序，以将本地页面设置为主页。
     - **Microsoft Edge**: [Custom New Tab Page](https://microsoftedge.microsoft.com/addons/detail/ljabenhdllbfiglklhlmoecabdkmkjkp)
