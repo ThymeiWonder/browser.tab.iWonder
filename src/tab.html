@@ -1,16 +1,27 @@
+<!--
+ * @file tab.html
+ * @description The HTML structure for the browser start page.
+ * @version 1.0.0
+ * @date 2025-09-01
+-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>page.iWonder</title>
+    <!-- Link to the external CSS file for styling -->
     <link rel="stylesheet" href="tab.css" />
+    <!-- Link to the external JavaScript file, deferred to load after the document is parsed -->
     <script src="tab.js" defer></script>
   </head>
   <body>
+    <!-- Main container for the search bar and related elements -->
     <div class="search-container">
+      <!-- Container for the search engine selection -->
       <div class="engine-container">
         <div class="engine-list">
+          <!-- Search engine item: Bing -->
           <div
             class="engine-item"
             name="bing"
@@ -26,6 +37,7 @@
                 fill="#008373"></path>
             </svg>
           </div>
+          <!-- Search engine item: Baidu -->
           <div
             class="engine-item"
             name="baidu"
@@ -44,6 +56,7 @@
                 fill="#ffffff"></path>
             </svg>
           </div>
+          <!-- Search engine item: Google -->
           <div
             class="engine-item"
             name="google"
@@ -70,12 +83,15 @@
         </div>
       </div>
 
+      <!-- Container for the input fields -->
       <div class="input-container">
+        <!-- Main search input field -->
         <input
           class="search-input"
           type="text"
           autocomplete="off"
           placeholder="i wonder more about you ..." />
+        <!-- Input field for settings (e.g., image path) -->
         <input
           class="settings-input"
           type="text"
@@ -83,8 +99,10 @@
           placeholder="image path here ..." />
       </div>
 
+      <!-- Container for shortcut links -->
       <div class="shortcut-container">
         <div class="shortcut-list">
+          <!-- Shortcut item: Bilibili -->
           <div
             class="shortcut-item"
             name="bilibili"
@@ -108,6 +126,7 @@
               </g>
             </svg>
           </div>
+          <!-- Shortcut item: YouTube -->
           <div
             class="shortcut-item"
             name="youtube"
@@ -131,6 +150,7 @@
               </g>
             </svg>
           </div>
+          <!-- Shortcut item: GitHub -->
           <div
             class="shortcut-item"
             name="github"
@@ -158,10 +178,12 @@
         </div>
       </div>
 
+      <!-- Container for action buttons -->
       <div class="button-container">
         <div class="button-list">
+          <!-- Search button -->
           <div class="button-item search-button" title="search">
-            <!-- 放大镜图标 -->
+            <!-- Magnifying glass icon -->
             <svg
               viewBox="0 0 1024 1024"
               xmlns="http://www.w3.org/2000/svg"
@@ -180,6 +202,7 @@
               </g>
             </svg>
           </div>
+          <!-- Cancel button (for settings mode) -->
           <div class="button-item cancel-button" title="cancel">
             <svg
               viewBox="0 0 24 24"
@@ -205,8 +228,9 @@
               </g>
             </svg>
           </div>
+          <!-- Settings button (hidden by default) -->
           <div class="button-item settings-button" title="settings">
-            <!-- 设置图标 (默认隐藏) -->
+            <!-- Settings icon -->
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -236,6 +260,7 @@
               </g>
             </svg>
           </div>
+          <!-- Confirm button (for settings mode) -->
           <div class="button-item confirm-button" title="confirm">
             <svg
               viewBox="0 0 1024 1024"
