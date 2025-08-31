@@ -1,0 +1,259 @@
+/* --- 全局重置和基础样式 --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  /* 去除元素聚焦时的默认边框 */
+  outline: none;
+}
+
+body {
+  /* 当背景图片不生效时候的默认背景色 */
+  background-color: rgba(21, 58, 91, 0.635);
+  /* 动态背景图片通过JS设置 */
+  /* 图片覆盖整个屏幕 */
+
+  background-size: cover;
+  /* 图片不重复 */
+  background-repeat: no-repeat;
+  /* 背景图片固定，不随滚动条滚动 */
+  background-attachment: fixed;
+  /* body高度为视口高度 */
+  height: 100vh;
+  margin: 0;
+  /* 默认字体 */
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* gap: 10px; */
+  width: 48vw;
+  min-width: 350px;
+  height: 48px;
+  border-radius: 24px;
+  /* 降低不透明度以突出玻璃效果 */
+  background-color: rgba(255, 255, 255, 0.25);
+  /* 玻璃拟态效果 */
+  backdrop-filter: blur(10px);
+  /* 兼容Safari */
+  -webkit-backdrop-filter: blur(10px);
+  /* 柔和的阴影 */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  /* 细微的边框 */
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  /* 默认隐藏, 防止初始化时样式错乱 */
+  visibility: hidden;
+}
+
+/* #region  width height管理 */
+.search-container > * {
+  height: 100%;
+}
+
+.engine-container > * {
+  height: 100%;
+}
+
+.input-container > input {
+  width: 100%;
+  height: 100%;
+}
+
+.shortcut-container > * {
+  height: 50%;
+}
+
+.button-container > * {
+  height: 100%;
+}
+
+/* 等价于.engine-container > .engine-list > .ngine-item */
+.engine-item {
+  height: 100%;
+}
+
+/* 等价于.shortcut-container > .shortcut-list > .shortcut-item */
+.shortcut-item {
+  height: 100%;
+}
+
+/* 等价于.button-container > .button-list > .button-item */
+.button-item {
+  height: 100%;
+}
+
+.engine-item > svg,
+.button-item > svg {
+  height: 50%;
+}
+
+/* #endregion */
+
+/* .engine-container, */
+.input-container,
+.shortcut-container,
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 12px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 让输入框填满剩余空间 */
+  flex: 1;
+  /* 当编辑模式时, 修改margin-left: 60px 样式更美观 */
+}
+
+/* Keyframes for the pop-in animation */
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.engine-item,
+.shortcut-item,
+.button-item {
+  animation: pop-in 0.3s ease-out;
+}
+
+.engine-list,
+.button-list {
+  display: flex;
+  align-items: center;
+  cursor: auto;
+  border-radius: 24px;
+  /* Add transition for smooth background/gap change */
+  transition: all 0.3s ease-in-out;
+}
+
+/* New class for expanded state */
+.engine-list.expanded,
+.button-list.expanded {
+  background-color: rgba(255, 255, 255, 0.2);
+  /* gap: 8px; */
+  /* padding: 0 8px; */
+}
+
+.engine-item {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Apply animation when item becomes visible */
+  animation: pop-in 0.3s ease-out;
+}
+
+.engine-item:hover {
+  background-color: white;
+}
+
+.engine-item > svg {
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.search-input,
+.settings-input {
+  background-color: transparent;
+  font-size: 17px;
+}
+
+.shortcut-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.shortcut-item {
+  aspect-ratio: 1;
+  border-radius: 15%;
+  cursor: pointer;
+  transition: transform 0.2s ease-out, background-color 0.2s ease-out;
+}
+
+.shortcut-item:hover {
+  transform: scale(1.2);
+  /* background-color: rgba(255, 255, 255, 0.4); */
+}
+
+.button-list {
+  width: 92px;
+  flex-direction: row-reverse;
+}
+
+.button-item {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  cursor: pointer;
+  /* background-color: rgb(134, 203, 196, 0.7); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-item > svg {
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.button-item:hover {
+  /* background-color: rgba(134, 203, 196, 0.9); */
+  background-color: white;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.fade-out-up {
+  animation: fadeOutUp 0.5s forwards;
+}
+
+.fade-in-down {
+  animation: fadeInDown 0.5s forwards;
+}
+
+@keyframes fadeOutUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-50px);
+    visibility: hidden;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+}
