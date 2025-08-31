@@ -199,8 +199,6 @@ function setSelectedChildToFirstChild(selector) {
  * Initializes the application on page load.
  */
 function initialize() {
-  // Disable the default context menu
-  document.addEventListener("contextmenu", (event) => event.preventDefault());
   // Set a random background image
   randomBackgroundImageSet();
   // Initialize the search engine list
@@ -231,6 +229,45 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // --- Event Listeners for UI Interactions ---
+
+// Right-click to show/hide the search container
+document.addEventListener("contextmenu", (event) => {
+  event.preventDefault();
+  const isVisible = dbGet("isSearchContainerVisible") === "yes";
+  const searchContainer = classHandler(".search-container");
+
+  if (isVisible) {
+    const query = classHandler(".search-input").value;
+    // Hide only if the click is outside the search container and the input is empty
+    if (query.trim() === "" && !searchContainer.contains(event.target)) {
+      hideSearchContainer();
+    }
+  } else {
+    // If not visible, show it on any right-click
+    showSearchContainer();
+  }
+});
+
+// Left-click on empty space to show the search container
+document.addEventListener("click", (event) => {
+  if (event.target === document.body) {
+    const isVisible = dbGet("isSearchContainerVisible") === "yes";
+    if (!isVisible) {
+      showSearchContainer();
+    }
+  }
+});
+
+// Middle-click on the search container to hide it
+classHandler(".search-container").addEventListener("mousedown", (event) => {
+  if (event.button === 1) {
+    // Middle mouse button
+    const query = classHandler(".search-input").value;
+    if (query.trim() === "") {
+      hideSearchContainer();
+    }
+  }
+});
 
 // Show all search engines on mouse enter
 classHandler(`.engine-item`, "all").forEach((element) => {
@@ -393,6 +430,31 @@ function hideSearchContainer() {
 
 // --- Global Keydown Event Listener ---
 document.addEventListener("keydown", (event) => {
+  // Show search container on any key press (except when it's already visible)
+  if (dbGet("isSearchContainerVisible") === "no") {
+    // But not for the Escape key
+    if (event.key === "Escape") {
+      return;
+    }
+    showSearchContainer();
+    // If a printable character is typed, put it in the input field
+    if (
+      event.key.length === 1 &&
+      !event.ctrlKey &&
+      !event.altKey &&
+      !event.metaKey
+    ) {
+      event.preventDefault();
+      // Set the input value directly
+      if (dbGet("settingsMode") === "yes") {
+        classHandler(".settings-input").value = event.key;
+      } else {
+        classHandler(".search-input").value = event.key;
+      }
+    }
+    return; // Exit after showing the container
+  }
+
   let input = null;
   // Determine which input is active based on the mode
   if (dbGet("settingsMode") === "yes") {
@@ -405,22 +467,6 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && input.value.trim() === "") {
     hideSearchContainer();
     return;
-  }
-
-  // Show the search container if it's hidden and a key is pressed
-  if (dbGet("isSearchContainerVisible") === "no") {
-    showSearchContainer();
-    // If a printable character is typed, put it in the input field
-    if (
-      event.key.length === 1 &&
-      !event.ctrlKey &&
-      !event.altKey &&
-      !event.metaKey
-    ) {
-      event.preventDefault();
-      // Set the input value directly
-      input.value = event.key;
-    }
   }
 
   // Handle 'Enter' key press
