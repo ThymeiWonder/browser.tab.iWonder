@@ -41,28 +41,32 @@
 7. 此时背景图片设置完成.
 
 ## 🛠️ 安装说明
-1. [点击下载`browser.tab.iWonder.html`](https://github.com/ThymeiWonder/browser.tab.iWonder/releases/latest) .
+1. [点击下载`tab.browser.iWonder.html`](https://github.com/ThymeiWonder/browser.tab.iWonder/releases/latest) .
 2.  **设置为新标签页(强烈推荐✨✨)**
     - 安装适用于您的浏览器的扩展程序，以将本地页面设置为主页。
     - **Microsoft Edge**: [Custom New Tab Page](https://microsoftedge.microsoft.com/addons/detail/ljabenhdllbfiglklhlmoecabdkmkjkp)
-    - 在扩展的设置中，将 URL 设置为您本地 `browser.tab.iWonder.html` 文件的地址 (例如 `file:///C:/path/to/your/project/src/browser.tab.iWonder.html`)。
+    - 在扩展的设置中，将 URL 设置为您本地 `tab.browser.iWonder.html` 文件的地址 (例如 `file:///C:/path/to/your/project/src/tab.browser.iWonder.html`)。
 ---
 
 ## 👁️ 预览
 1. **搜索框显示时效果:**
-<img width="3570" height="1736" alt="image-20250901015412286" src="https://github.com/user-attachments/assets/7eef1d6d-1afa-444c-a7cd-b19790be46c0" />
+<img width="2553" height="1230" alt="image" src="https://github.com/user-attachments/assets/937359e6-c18c-47d0-8a15-753c032c52a2" />
+
 
 2. **搜索框隐藏时效果:**
-<img width="2559" height="1240" alt="image" src="https://github.com/user-attachments/assets/9dbde707-8139-4e66-bcd5-f4f5ce433604" />
+<img width="2559" height="1235" alt="image" src="https://github.com/user-attachments/assets/260970ec-5f7e-4927-817b-c7a49c79493c" />
 
-3. **设置按钮 & 设置界面效果:**
-设置图1:
-<img width="2559" height="1238" alt="image-20250901015440703" src="https://github.com/user-attachments/assets/a714caef-7880-49e8-afb2-0592a4218a26" />
-设置图2:
-<img width="2559" height="1240" alt="image-20250901015512072" src="https://github.com/user-attachments/assets/53b3b9ff-de45-4628-8eb2-0e6bdfbe7b09" />
-设置图3:
-<img width="2555" height="1238" alt="image" src="https://github.com/user-attachments/assets/10a9e852-04b6-4d5b-ac68-cf9cad00b264" />
-设置图4:
-<img width="1490" height="894" alt="image" src="https://github.com/user-attachments/assets/52d86bec-b050-4ae9-b170-14504df71eda" />
-设置图5:
-<img width="562" height="155" alt="image" src="https://github.com/user-attachments/assets/facc1b23-97a4-49d2-8427-e939cc13ba35" />
+3. **设置图1-设置按钮:**
+<img width="1355" height="848" alt="image" src="https://github.com/user-attachments/assets/e34ec12c-0b57-47b2-9126-03a7a0febc12" />
+
+4. **设置图2-设置界面:**
+<img width="1338" height="227" alt="image" src="https://github.com/user-attachments/assets/a0fc9f71-436b-458e-ad40-338b921edc1b" />
+
+5. **设置图3-输入图片文件夹路径后点击确认:**
+<img width="1423" height="210" alt="image" src="https://github.com/user-attachments/assets/da92ac23-cc66-4936-9043-4833d39a48b2" />
+
+6. **设置图4-弹窗后再次选择图片文件夹路径:**
+<img width="1482" height="892" alt="image" src="https://github.com/user-attachments/assets/8d252bdf-8065-406b-83b3-39fbb45bb7d3" />
+
+7. **设置图5-授权浏览器访问图片文件夹路径:**
+<img width="558" height="153" alt="image" src="https://github.com/user-attachments/assets/5af31252-9993-44e1-b4b3-c02313e1ecf2" />
