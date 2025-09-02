@@ -325,14 +325,7 @@ classHandler(".button-list").addEventListener("mouseleave", (event) => {
   }
 });
 
-// Redundant event listener for engine item click, can be removed.
-classHandler(".engine-item", "all").forEach((element) => {
-  element.addEventListener("click", (event) => {
-    const engineName = event.currentTarget.getAttribute("name");
-    dbSet("currentEngine", engineName);
-    classHandler(`.engine-item[name="${engineName}"]`, "show-myself-only");
-  });
-});
+
 
 // Enter settings mode when the settings button is clicked
 classHandler(`.settings-button`).addEventListener("click", (event) => {
