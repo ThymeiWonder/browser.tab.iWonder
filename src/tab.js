@@ -272,8 +272,14 @@ classHandler(".search-container").addEventListener("mousedown", (event) => {
 // Show all search engines on mouse enter
 classHandler(`.engine-item`, "all").forEach((element) => {
   element.addEventListener("mouseenter", (event) => {
-    classHandler(`.engine-item`, "show-all");
-    classHandler(`.engine-list`).classList.add("expanded");
+    // 调整样式: 当鼠标悬停300ms后, 再显示扩展按钮.
+    setTimeout(() => {
+      if (!classHandler(`.engine-item`).matches(":hover")) {
+        return;
+      }
+      classHandler(`.engine-item`, "show-all");
+      classHandler(`.engine-list`).classList.add("expanded");
+    }, 300);
   });
 });
 
@@ -299,10 +305,14 @@ classHandler(".engine-item", "all").forEach((element) => {
 
 // Show the settings button on mouse enter over the search button
 classHandler(`.search-button`).addEventListener("mouseenter", (event) => {
-  classHandler(`.settings-button`, "show");
-  // classHandler(`.button-list`).style.backgroundColor = "lightgray";
-  classHandler(`.button-list`).classList.add("expanded");
-  // console.log(classHandler(`.button-list`).offsetWidth);
+  // 调整样式: 当鼠标悬停300ms后, 再显示扩展按钮.
+  setTimeout(() => {
+    if (!classHandler(`.search-button`).matches(":hover")) {
+      return;
+    }
+    classHandler(`.settings-button`, "show");
+    classHandler(`.button-list`).classList.add("expanded");
+  }, 300);
 });
 
 // Collapse the button list on mouse leave
