@@ -462,16 +462,12 @@ document.addEventListener("keydown", (event) => {
         classHandler(".search-input").value = event.key;
       }
     }
-    return; // Exit after showing the container
   }
 
-  let input = null;
-  // Determine which input is active based on the mode
-  if (dbGet("settingsMode") === "yes") {
-    input = classHandler(".settings-input");
-  } else {
-    input = classHandler(".search-input");
-  }
+  let input =
+    dbGet("settingsMode") === "yes"
+      ? classHandler(".settings-input")
+      : classHandler(".search-input");
 
   // Hide the search container on 'Escape' if the input is empty
   if (event.key === "Escape" && input.value.trim() === "") {
@@ -489,12 +485,13 @@ document.addEventListener("keydown", (event) => {
       performSearch();
     }
   }
-  // fixme: 不写此行, 用ctrl + a 触发窗口显示时, 会复制placeholder. ╮(╯▽╰)╭
+  // fixme: 不写此行, 用ctrl + a  然后按刷新按钮 触发窗口显示时, 会复制placeholder. ╮(╯▽╰)╭
   // Focus the input to ensure the cursor is visible.
   input.focus();
   // 延迟聚焦, 确保动画完成后再聚焦, 否则虽不影响使用, 但是字符后边没有光标闪烁
+  // 实际测试 延迟时间并不重要. 只要有延迟时间, 光标就可以显示.
   // Delay focus to ensure it happens after the animation completes.
   setTimeout(() => {
     input.focus();
-  }, 600);
+  }, 100);
 });
